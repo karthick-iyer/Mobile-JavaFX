@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawersStack?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mobileshopmanagement.controller.menuController">
+   <children>
+      <Label layoutX="425.0" layoutY="38.0" text="Dashboard">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Pane layoutX="226.0" layoutY="104.0" prefHeight="86.0" prefWidth="213.0" style="-fx-background-color: #4286f4;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Customer" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="161.0" layoutY="28.0" text="18">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="457.0" layoutY="104.0" prefHeight="86.0" prefWidth="213.0" style="-fx-background-color: #f44183;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Sales" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="161.0" layoutY="28.0" text="9">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="226.0" layoutY="240.0" prefHeight="86.0" prefWidth="213.0" style="-fx-background-color: #f47041;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Total" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="28.0" text="90,150">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="457.0" layoutY="240.0" prefHeight="86.0" prefWidth="213.0" style="-fx-background-color: #41f482;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Stocks" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="141.0" layoutY="28.0" text="150">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXButton layoutX="564.0" layoutY="400.0" prefHeight="65.0" prefWidth="142.0" ripplerFill="LIGHTGRAY" style="-fx-background-color: #f208da;" text="Log Out" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXDrawersStack layoutX="1.0" layoutY="-3.0" prefHeight="486.0" prefWidth="204.0" style="-fx-background-color: #00f;" />
+      <JFXButton fx:id="btn_dashboard" buttonType="RAISED" layoutY="94.0" onAction="#dashboardClicked" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_mobiles" buttonType="RAISED" layoutY="138.0" onAction="#mobilesClicked" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Mobiles" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_billing" buttonType="RAISED" layoutY="181.0" onAction="#billingClicked" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Billing" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_purchase" buttonType="RAISED" layoutY="224.0" onAction="#purchaseClicked" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Purchase" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_about" buttonType="RAISED" layoutX="2.0" layoutY="267.0" onAction="#aboutClicked" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="About" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_exit" buttonType="RAISED" layoutY="303.0" onAction="#exitClicked" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Exit" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MobileShopManagement.jnlp">
+  <information>
+    <title>MobileShopManagement</title>
+    <vendor>madhu</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="MobileShopManagement.jar" size="52736" download="eager" />
+    <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\fontawesomefx-commons-11.0.jar" size="21783" download="eager" />
+    <jar href="lib\fontawesomefx-materialicons-2.2.0-9.1.2.jar" size="104021" download="eager" />
+    <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="lib\jfoenix-9.0.8.jar" size="2419463" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="mobileshopmanagement.MobileShopManagement"  name="MobileShopManagement" />
+  <update check="always"/>
+</jnlp>
