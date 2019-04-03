@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.sql.SQLException;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Login extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception { 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("..//view//login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("/res/login.fxml"));
         
         Scene scene = new Scene(root);
         
