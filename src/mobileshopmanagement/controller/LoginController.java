@@ -5,9 +5,12 @@
  */
 package mobileshopmanagement.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -19,13 +22,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import mobileshopmanagement.database.*;
 import mobileshopmanagement.database.DBHelper;
+import mobileshopmanagement.utils.FileUtils;
 
 
 /**
  *
  * @author madhu
  */
-public class LoginController{
+public class LoginController implements Initializable{
 
     @FXML
     private TextField txt_username;
@@ -36,10 +40,14 @@ public class LoginController{
     @FXML
     private Button btn_login;
     
-   @FXML
-    public void initialize() {
-        
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        FileUtils file = new FileUtils();
+        file.makeDir();
     }
+    
+    
 
     @FXML
     void loginClicked(ActionEvent event) throws Exception{

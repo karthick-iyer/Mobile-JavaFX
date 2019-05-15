@@ -9,54 +9,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mobileshopmanagement.controller.BillingController">
    <children>
       <Label layoutX="420.0" layoutY="14.0" text="Billing">
          <font>
             <Font name="Arial Black" size="24.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="223.0" layoutY="69.0" prefHeight="26.0" prefWidth="124.0" promptText="Select Model" />
-      <JFXComboBox layoutX="223.0" layoutY="102.0" prefHeight="26.0" prefWidth="124.0" promptText="Select Quantity" />
-      <JFXButton layoutX="233.0" layoutY="147.0" prefHeight="38.0" prefWidth="83.0" style="-fx-background-color: #e2096b;" text="Confirm" textFill="WHITE" />
-      <Label layoutX="228.0" layoutY="216.0" text="Price : ">
+      <JFXComboBox fx:id="cmb_model" layoutX="223.0" layoutY="69.0" onAction="#onModelSelected" prefHeight="26.0" prefWidth="124.0" promptText="Select Model" />
+      <JFXComboBox fx:id="cmb_qty" layoutX="223.0" layoutY="102.0" onAction="#onQtySelected" prefHeight="26.0" prefWidth="124.0" promptText="Select Quantity" />
+      <JFXButton fx:id="btn_confirm" layoutX="233.0" layoutY="147.0" onAction="#onConfrimClicked" prefHeight="38.0" prefWidth="83.0" style="-fx-background-color: #e2096b;" text="Confirm" textFill="WHITE" />
+      <Label fx:id="lb_price" layoutX="224.0" layoutY="214.0" prefHeight="20.0" prefWidth="204.0" text="18000">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="274.0" layoutY="216.0" prefHeight="20.0" prefWidth="83.0" text="18000">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="223.0" layoutY="247.0" prefHeight="18.0" prefWidth="50.0" text="GST 6% : " />
-      <Label layoutX="277.0" layoutY="247.0" prefHeight="18.0" prefWidth="62.0" text="1080" />
+      <Label layoutX="219.0" layoutY="247.0" prefHeight="18.0" prefWidth="50.0" text="GST 6% : " />
+      <Label fx:id="lb_gst" layoutX="277.0" layoutY="247.0" prefHeight="18.0" prefWidth="142.0" text="1080" />
       <Label layoutX="215.0" layoutY="267.0" prefHeight="18.0" prefWidth="61.0" text="CGST 6% : " />
-      <Label layoutX="277.0" layoutY="267.0" prefHeight="18.0" prefWidth="62.0" text="1080" />
+      <Label fx:id="lb_cgst" layoutX="277.0" layoutY="267.0" prefHeight="18.0" prefWidth="142.0" text="1080" />
       <Label layoutX="224.0" layoutY="293.0" text="Total : ">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="293.0" prefHeight="18.0" prefWidth="50.0" text="20160">
+      <Label fx:id="lb_total" layoutX="269.0" layoutY="293.0" prefHeight="20.0" prefWidth="142.0" text="20160">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXButton layoutX="223.0" layoutY="329.0" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #09e2c9;" text="Pay With Paytm" />
-      <JFXButton layoutX="223.0" layoutY="378.0" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #09e2c9;" text="Cash" />
-      <JFXButton layoutX="223.0" layoutY="429.0" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #09e2c9;" text="Cancel" />
-      <JFXTextField alignment="CENTER" layoutX="443.0" layoutY="69.0" prefHeight="26.0" prefWidth="232.0" promptText="Customer Name" />
-      <JFXTextField alignment="CENTER" layoutX="443.0" layoutY="102.0" prefHeight="26.0" prefWidth="232.0" promptText="Customer Phone Number" />
-      <JFXTextField alignment="CENTER" layoutX="443.0" layoutY="138.0" prefHeight="26.0" prefWidth="232.0" promptText="Customer Email" />
-      <JFXTextField alignment="CENTER" layoutX="443.0" layoutY="290.0" prefHeight="26.0" prefWidth="232.0" promptText="Mobile IMEI" />
-      <JFXTextArea layoutX="443.0" layoutY="181.0" prefHeight="90.0" prefWidth="232.0" promptText="Customer Address" />
+      <JFXButton fx:id="btn_paytm" layoutX="223.0" layoutY="329.0" onAction="#onPaytmClicked" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #09e2c9;" text="Pay With Paytm" />
+      <JFXButton fx:id="btn_cash" layoutX="223.0" layoutY="378.0" onAction="#onCashClicked" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #09e2c9;" text="Cash" />
+      <JFXButton fx:id="btn_cancel" layoutX="223.0" layoutY="429.0" onAction="#onCancelClick" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #09e2c9;" text="Cancel" />
+      <JFXTextField fx:id="ed_name" alignment="CENTER" layoutX="443.0" layoutY="69.0" prefHeight="26.0" prefWidth="232.0" promptText="Customer Name" />
+      <JFXTextField fx:id="ed_phone" alignment="CENTER" layoutX="443.0" layoutY="102.0" prefHeight="26.0" prefWidth="232.0" promptText="Customer Phone Number" />
+      <JFXTextField fx:id="ed_mail" alignment="CENTER" layoutX="443.0" layoutY="138.0" prefHeight="26.0" prefWidth="232.0" promptText="Customer Email" />
+      <JFXTextField fx:id="ed_imei" alignment="CENTER" layoutX="443.0" layoutY="290.0" prefHeight="26.0" prefWidth="232.0" promptText="Mobile IMEI" />
+      <JFXTextArea fx:id="ed_address" layoutX="443.0" layoutY="181.0" prefHeight="90.0" prefWidth="232.0" promptText="Customer Address" />
       <Label layoutX="443.0" layoutY="342.0" text="Date : ">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="491.0" layoutY="342.0" text="03-04-2019">
+      <Label fx:id="lb_date" layoutX="491.0" layoutY="342.0" text="03-04-2019">
          <font>
             <Font size="14.0" />
          </font>
@@ -66,7 +61,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="491.0" layoutY="362.0" text="11 : 20 AM">
+      <Label fx:id="lb_time" layoutX="491.0" layoutY="362.0" text="11 : 20 AM">
          <font>
             <Font size="14.0" />
          </font>
@@ -76,7 +71,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="494.0" layoutY="390.0" prefHeight="20.0" prefWidth="124.0" text="#ESCN0001">
+      <Label fx:id="lb_billno" layoutX="494.0" layoutY="390.0" prefHeight="20.0" prefWidth="124.0" text="#ESCN0001">
          <font>
             <Font size="14.0" />
          </font>

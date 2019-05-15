@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mobileshopmanagement.controller.EditController">
    <children>
       <Label layoutX="403.0" layoutY="14.0" text="Mobiles">
          <font>
             <Font name="Arial Black" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="246.0" fitWidth="200.0" layoutX="216.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageView" fitHeight="246.0" fitWidth="200.0" layoutX="216.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@nokia.jpg" />
          </image>
@@ -30,24 +30,24 @@
       <Label layoutX="425.0" layoutY="286.0" text="Sensors :" />
       <Label layoutX="425.0" layoutY="325.0" text="Battery : " />
       <Label layoutX="426.0" layoutY="362.0" text="Colors : " />
-      <JFXTextField layoutX="480.0" layoutY="64.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="103.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="137.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="172.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="211.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="246.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="282.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="321.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="358.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_brand" layoutX="480.0" layoutY="64.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_model" layoutX="480.0" layoutY="103.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_display" layoutX="480.0" layoutY="137.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_platform" layoutX="480.0" layoutY="172.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_memory" layoutX="480.0" layoutY="211.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_camera" layoutX="480.0" layoutY="246.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_sensor" layoutX="480.0" layoutY="282.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_battery" layoutX="480.0" layoutY="321.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_colors" layoutX="480.0" layoutY="358.0" prefHeight="26.0" prefWidth="218.0" />
       <Label layoutX="420.0" layoutY="397.0" text="Quantity : " />
-      <JFXTextField layoutX="483.0" layoutY="393.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="ed_qty" layoutX="483.0" layoutY="393.0" prefHeight="26.0" prefWidth="218.0" />
       <Label layoutX="436.0" layoutY="432.0" text="Price : " />
-      <JFXTextField layoutX="484.0" layoutY="428.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXButton layoutX="323.0" layoutY="419.0" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Update" />
-      <JFXButton layoutX="216.0" layoutY="419.0" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Back" />
-      <JFXButton layoutX="266.0" layoutY="360.0" prefHeight="38.0" prefWidth="79.0" style="-fx-background-color: #f00;" text="Delete" />
-      <JFXTextField alignment="CENTER" layoutX="238.0" layoutY="51.0" promptText="Enter a mobile" />
-      <JFXButton layoutX="280.0" layoutY="91.0" style="-fx-background-color: #f45042;" text="Search" />
+      <JFXTextField fx:id="ed_price" layoutX="484.0" layoutY="428.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXButton fx:id="btn_update" layoutX="323.0" layoutY="419.0" onAction="#onUpdateClicked" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Update" />
+      <JFXButton fx:id="btn_back" layoutX="216.0" layoutY="419.0" onAction="#onBackClicked" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Back" />
+      <JFXButton fx:id="btn_delete" layoutX="266.0" layoutY="360.0" onAction="#onDeleteClicked" prefHeight="38.0" prefWidth="79.0" style="-fx-background-color: #f00;" text="Delete" />
+      <JFXTextField fx:id="ed_search" alignment="CENTER" layoutX="238.0" layoutY="51.0" promptText="Enter a mobile" />
+      <JFXButton fx:id="btn_search" layoutX="280.0" layoutY="91.0" onAction="#onSearchClicked" style="-fx-background-color: #f45042;" text="Search" />
       <JFXDrawersStack layoutX="1.0" layoutY="-3.0" prefHeight="486.0" prefWidth="204.0" style="-fx-background-color: #00f;" />
       <JFXButton buttonType="RAISED" layoutY="94.0" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Dashboard" textFill="WHITE">
          <font>

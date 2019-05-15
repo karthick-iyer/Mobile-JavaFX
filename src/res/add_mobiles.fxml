@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mobileshopmanagement.controller.addMobilesController">
    <children>
       <JFXDrawersStack layoutX="1.0" layoutY="-3.0" prefHeight="486.0" prefWidth="204.0" style="-fx-background-color: #00f;" />
       <JFXButton buttonType="RAISED" layoutY="94.0" prefHeight="43.0" prefWidth="204.0" ripplerFill="LIGHTGRAY" text="Dashboard" textFill="WHITE">
@@ -47,7 +47,7 @@
             <Font name="Arial Black" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="246.0" fitWidth="200.0" layoutX="214.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iv_mobile" fitHeight="246.0" fitWidth="200.0" layoutX="214.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@nokia.jpg" />
          </image>
@@ -61,21 +61,21 @@
       <Label layoutX="425.0" layoutY="286.0" text="Sensors :" />
       <Label layoutX="425.0" layoutY="325.0" text="Battery : " />
       <Label layoutX="426.0" layoutY="362.0" text="Colors : " />
-      <JFXTextField layoutX="480.0" layoutY="64.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="103.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="137.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="172.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="211.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="246.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="282.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="321.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXTextField layoutX="480.0" layoutY="358.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_brand" layoutX="480.0" layoutY="64.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_model" layoutX="480.0" layoutY="103.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_display" layoutX="480.0" layoutY="137.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_platform" layoutX="480.0" layoutY="172.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_memory" layoutX="480.0" layoutY="211.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_camera" layoutX="480.0" layoutY="246.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_sensors" layoutX="480.0" layoutY="282.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_battery" layoutX="480.0" layoutY="321.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_colors" layoutX="480.0" layoutY="358.0" prefHeight="26.0" prefWidth="218.0" />
       <Label layoutX="420.0" layoutY="397.0" text="Quantity : " />
-      <JFXTextField layoutX="483.0" layoutY="393.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXTextField fx:id="txt_quantity" layoutX="483.0" layoutY="393.0" prefHeight="26.0" prefWidth="218.0" />
       <Label layoutX="436.0" layoutY="432.0" text="Price : " />
-      <JFXTextField layoutX="484.0" layoutY="428.0" prefHeight="26.0" prefWidth="218.0" />
-      <JFXButton layoutX="323.0" layoutY="419.0" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Add" />
-      <JFXButton layoutX="216.0" layoutY="419.0" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Back" />
-      <JFXButton layoutX="254.0" layoutY="296.0" prefHeight="43.0" prefWidth="108.0" style="-fx-background-color: #0f0;" text="Upload Image" textFill="WHITE" />
+      <JFXTextField fx:id="txt_price" layoutX="484.0" layoutY="428.0" prefHeight="26.0" prefWidth="218.0" />
+      <JFXButton fx:id="btn_add" layoutX="323.0" layoutY="419.0" onAction="#onAddClicked" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Add" />
+      <JFXButton fx:id="btn_back" layoutX="216.0" layoutY="419.0" onAction="#onBackClicked" prefHeight="43.0" prefWidth="90.0" style="-fx-background-color: #fbc;" text="Back" />
+      <JFXButton fx:id="btn_upload" layoutX="254.0" layoutY="296.0" onAction="#imageUpload" prefHeight="43.0" prefWidth="108.0" style="-fx-background-color: #0f0;" text="Upload Image" textFill="WHITE" />
    </children>
 </AnchorPane>

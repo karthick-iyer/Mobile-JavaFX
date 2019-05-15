@@ -10,6 +10,7 @@ package mobileshopmanagement.controller;
  * @author madhu
  */
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,7 +79,7 @@ public class menuController {
 
     @FXML
     void exitClicked(ActionEvent event) {
-
+        Platform.exit();
     }
 
     @FXML

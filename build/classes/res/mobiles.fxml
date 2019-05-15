@@ -17,9 +17,9 @@
          </font>
       </Label>
       <Label layoutX="244.0" layoutY="69.0" text="Enter a Search : " />
-      <JFXTextField layoutX="345.0" layoutY="65.0" prefHeight="26.0" prefWidth="240.0" />
-      <JFXButton layoutX="620.0" layoutY="66.0" prefHeight="26.0" prefWidth="85.0" ripplerFill="LIGHTGRAY" style="-fx-background-color: #5b41f4;" text="Search" textFill="WHITE" />
-      <ImageView fitHeight="246.0" fitWidth="200.0" layoutX="216.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+      <JFXTextField fx:id="ed_search" layoutX="345.0" layoutY="65.0" prefHeight="26.0" prefWidth="240.0" />
+      <JFXButton fx:id="btn_search" layoutX="620.0" layoutY="66.0" onAction="#onSearchClicked" prefHeight="26.0" prefWidth="85.0" ripplerFill="LIGHTGRAY" style="-fx-background-color: #5b41f4;" text="Search" textFill="WHITE" />
+      <ImageView fx:id="img" fitHeight="246.0" fitWidth="200.0" layoutX="216.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@nokia.jpg" />
          </image>
@@ -51,21 +51,21 @@
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <Label layoutX="488.0" layoutY="140.0" prefHeight="18.0" prefWidth="218.0" text="Nokia" />
-      <Label layoutX="482.0" layoutY="163.0" prefHeight="18.0" prefWidth="218.0" text="Nokia 9" />
-      <Label layoutX="488.0" layoutY="183.0" prefHeight="18.0" prefWidth="218.0" text="5.99 inches, P-OLED " />
-      <Label layoutX="490.0" layoutY="205.0" prefHeight="18.0" prefWidth="218.0" text="Android 9.0 (Pie)" />
-      <Label layoutX="485.0" layoutY="226.0" prefHeight="18.0" prefWidth="218.0" text="128 GB, 6 GB RAM" />
-      <Label layoutX="485.0" layoutY="248.0" prefHeight="18.0" prefWidth="256.0" text="5x 12 MP, f/1.8, 28mm" />
-      <Label layoutX="487.0" layoutY="269.0" prefHeight="18.0" prefWidth="218.0" text="Fingerprint (under display), accelerometer, gyro, proximity, compass, barometer" />
-      <Label layoutX="485.0" layoutY="291.0" prefHeight="18.0" prefWidth="218.0" text=" Li-Po 3320 mAh battery" />
-      <Label layoutX="485.0" layoutY="313.0" prefHeight="18.0" prefWidth="218.0" text="Midnight Blue" />
-      <Label layoutX="530.0" layoutY="362.0" text="18">
+      <Label fx:id="lb_brand" layoutX="488.0" layoutY="140.0" prefHeight="18.0" prefWidth="218.0" text="Nokia" />
+      <Label fx:id="lb_model" layoutX="482.0" layoutY="163.0" prefHeight="18.0" prefWidth="218.0" text="Nokia 9" />
+      <Label fx:id="lb_display" layoutX="488.0" layoutY="183.0" prefHeight="18.0" prefWidth="218.0" text="5.99 inches, P-OLED " />
+      <Label fx:id="lb_platform" layoutX="490.0" layoutY="205.0" prefHeight="18.0" prefWidth="218.0" text="Android 9.0 (Pie)" />
+      <Label fx:id="lb_memory" layoutX="485.0" layoutY="226.0" prefHeight="18.0" prefWidth="218.0" text="128 GB, 6 GB RAM" />
+      <Label fx:id="lb_camera" layoutX="485.0" layoutY="248.0" prefHeight="18.0" prefWidth="256.0" text="5x 12 MP, f/1.8, 28mm" />
+      <Label fx:id="lb_sensors" layoutX="487.0" layoutY="269.0" prefHeight="18.0" prefWidth="218.0" text="Fingerprint (under display), accelerometer, gyro, proximity, compass, barometer" />
+      <Label fx:id="lb_battery" layoutX="485.0" layoutY="291.0" prefHeight="18.0" prefWidth="218.0" text=" Li-Po 3320 mAh battery" />
+      <Label fx:id="lb_colors" layoutX="485.0" layoutY="313.0" prefHeight="18.0" prefWidth="218.0" text="Midnight Blue" />
+      <Label fx:id="lb_qty" layoutX="530.0" layoutY="362.0" prefHeight="20.0" prefWidth="71.0" text="18">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="530.0" layoutY="388.0" text="48, 999">
+      <Label fx:id="lb_price" layoutX="530.0" layoutY="388.0" text="48, 999">
          <font>
             <Font size="14.0" />
          </font>
