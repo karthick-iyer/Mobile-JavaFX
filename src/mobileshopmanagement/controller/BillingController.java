@@ -15,11 +15,21 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import mobileshopmanagement.database.BillingDB;
+import mobileshopmanagement.database.MobilesDB;
 import mobileshopmanagement.model.Customer;
 import mobileshopmanagement.model.Models;
+import mobileshopmanagement.utils.AlertBox;
+import mobileshopmanagement.utils.DateUtils;
+import mobileshopmanagement.utils.Otp;
 
 /**
  *
@@ -82,13 +92,18 @@ public class BillingController implements Initializable{
     private Label lb_billno;
     
     private BillingDB billingDB = new BillingDB();
+    private MobilesDB mobilesDB = new MobilesDB();
+    private AlertBox alertBox = new AlertBox();
+    private DateUtils dateUtils = new DateUtils();
+    private Otp otp = new Otp();
     
     private int selectedModel,selectedQty = 0;
     private float total,grandTotal,gst,cgst = 0;
     private int updatedQty = 0;
     
     private List<Models> model = null;
-    
+    private String CashMode = "CASH";
+    private int mobileId = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -115,6 +130,12 @@ public class BillingController implements Initializable{
         btn_paytm.setDisable(true);
         btn_cash.setDisable(true);
         
+        lb_date.setText(dateUtils.getTodayDate());
+        lb_time.setText(dateUtils.getCurrentTime());
+        
+        lb_billno.setText("ESCN"+billingDB.getBillId());
+        
+        btn_paytm.setVisible(false);
     }
     
     @FXML
@@ -125,6 +146,26 @@ public class BillingController implements Initializable{
     @FXML
     void onCashClicked(ActionEvent event) {
         
+        if (billingDB.isBillingDone(validateData()) && mobilesDB.updateQty(updatedQty, mobileId)){
+            Otp.sendOtp("Hello Admin!, " + validateData().getName() + " has brought "+ 
+            " of " + validateData().getModel()+ " Qauntity :"+ validateData().getQty() +" and total is  " +
+            validateData().getPrice() + ".");
+             alertBox.showInformationAlert("Billing is Successfully DOne");
+             try {
+            FXMLLoader menu =new FXMLLoader(getClass().getResource("/res/menu.fxml"));
+            Parent MenuParent = (Parent) menu.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Dashboard - Mobile Shop");
+            stage.setScene(new Scene(MenuParent));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }else{
+            alertBox.showErrorAlert("Billing Failed...!!!");
+        }
     }
 
     @FXML
@@ -134,6 +175,10 @@ public class BillingController implements Initializable{
         
         selectedQty = convertToInt(cmb_qty.getSelectionModel().getSelectedItem().toString());
         
+        if (selectedQty>convertToInt(model.get(selectedModel).getQty())){
+            alertBox.showErrorAlert("Out of Stock..!!");
+            return;
+        }
         total = selectedQty * total;
         lb_price.setText("Price : " + total);
         
@@ -146,8 +191,10 @@ public class BillingController implements Initializable{
         lb_cgst.setText("" + cgst);
         lb_total.setText("" + grandTotal);
         
-        updatedQty = selectedQty - convertToInt(model.get(selectedModel).getQty());
-        
+        updatedQty = convertToInt(model.get(selectedModel).getQty()) - selectedQty ;
+       
+        mobileId = model.get(selectedModel).getId();
+                
         btn_confirm.setDisable(true);
         
         btn_confirm.setDisable(false);
@@ -192,12 +239,12 @@ public class BillingController implements Initializable{
                     ed_address.getText(), 
                     model.get(selectedModel).getModels(), 
                     ed_imei.getText(), 
-                    "grandTotal", 
-                    "date", 
-                    "time", 
-                    "updatedQty", 
-                    "payment", 
-                    "billNo");
+                    ""+grandTotal, 
+                    ""+selectedQty, 
+                    dateUtils.getTodayDate(), 
+                    dateUtils.getCurrentTime(), 
+                    "CASH", 
+                    "ESCN"+billingDB.getBillId());
         }
         return customer;
     }

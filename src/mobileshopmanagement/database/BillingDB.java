@@ -12,9 +12,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static mobileshopmanagement.database.Connect.*;
 import mobileshopmanagement.model.Customer;
 import mobileshopmanagement.model.Models;
+import mobileshopmanagement.utils.Otp;
 
 /**
  *
@@ -79,7 +82,7 @@ public class BillingDB {
 
         Connection connection = checkConnection();
         PreparedStatement statement = null;
-        
+
         try {
             statement = connection.prepareStatement(insertQuery);
             statement.setString(1, customer.getName());
@@ -94,9 +97,9 @@ public class BillingDB {
             statement.setString(10, customer.getQty());
             statement.setString(11, customer.getPayment());
             statement.setString(12, customer.getBillNo());
-            
+
             result = statement.executeUpdate();
-            
+
             statement.close();
             connection.close();
 
@@ -106,35 +109,156 @@ public class BillingDB {
 
         return result > 0;
     }
-    
-    public List<Models> getAllModels(){
-        String getModelsSQL = "SELECT model,price,quantity FROM mobile";
+
+    public List<Models> getAllModels() {
+        String getModelsSQL = "SELECT id,model,price,quantity FROM mobile";
         List<Models> models = new ArrayList<Models>();
-        
+
         Connection connection = checkConnection();
         Statement statement = null;
-        
+
         try {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(getModelsSQL);
-            
+
             while (resultSet.next()) {
-                Models m = new Models(resultSet.getString(1),resultSet.getString(2),
-                resultSet.getString(3));
+                Models m = new Models(resultSet.getInt(1), resultSet.getString(2),
+                        resultSet.getString(3), resultSet.getString(4));
                 models.add(m);
-                
+
             }
-            
+
             resultSet.close();
             statement.close();
             connection.close();
-            
+
         } catch (SQLException e) {
             System.err.println("Error in Search : " + e.getMessage());
         }
-        
-        
-        
+
         return models;
     }
+
+    public int getBillId() {
+        int id = 0;
+        try {
+            String otpSql = "SELECT id FROM billing ORDER BY id DESC LIMIT 1";
+
+            Connection con = Connect.checkConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(otpSql);
+
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            rs.close();
+
+            statement.close();
+            con.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Otp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+
+    public int getTotalCustomers() {
+        int no = 0;
+        try {
+            String otpSql = "SELECT count(*) from billing";
+
+            Connection con = Connect.checkConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(otpSql);
+
+            while (rs.next()) {
+                no = rs.getInt(1);
+            }
+
+            rs.close();
+
+            statement.close();
+            con.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Otp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return no;
+    }
+
+    public int getTotalStockes() {
+        int no = 0;
+        try {
+            String otpSql = "SELECT sum(quantity) from  mobile";
+
+            Connection con = Connect.checkConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(otpSql);
+
+            while (rs.next()) {
+                no = rs.getInt(1);
+            }
+
+            rs.close();
+
+            statement.close();
+            con.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Otp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return no;
+    }
+
+    public int getTotalSales() {
+        int no = 0;
+        try {
+            String otpSql = "SELECT sum(price) from  billing";
+
+            Connection con = Connect.checkConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(otpSql);
+
+            while (rs.next()) {
+                no = rs.getInt(1);
+            }
+
+            rs.close();
+
+            statement.close();
+            con.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Otp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return no;
+    }
+    
+    public int getTotalNoOfSales() {
+        int no = 0;
+        try {
+            String otpSql = "SELECT sum(qty) from  billing";
+
+            Connection con = Connect.checkConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(otpSql);
+
+            while (rs.next()) {
+                no = rs.getInt(1);
+            }
+
+            rs.close();
+
+            statement.close();
+            con.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Otp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return no;
+    }
+    
+    
+
 }

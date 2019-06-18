@@ -23,6 +23,7 @@ import javafx.stage.StageStyle;
 import mobileshopmanagement.database.*;
 import mobileshopmanagement.database.DBHelper;
 import mobileshopmanagement.utils.FileUtils;
+import mobileshopmanagement.utils.Otp;
 
 
 /**
@@ -39,6 +40,8 @@ public class LoginController implements Initializable{
 
     @FXML
     private Button btn_login;
+    
+    private Otp otp = new Otp();
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,12 +67,12 @@ public class LoginController implements Initializable{
             alert.showAndWait();
             
             try {
-            FXMLLoader menu =new FXMLLoader(getClass().getResource("/res/menu.fxml"));
+            FXMLLoader menu =new FXMLLoader(getClass().getResource("/res/otp.fxml"));
             Parent MenuParent = (Parent) menu.load();
             Stage stage = new Stage();
             stage.initModality(Modality.NONE);
             stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Dashboard - Mobile Shop");
+            stage.setTitle("OTP Login - Mobile Shop");
             stage.setScene(new Scene(MenuParent));
             stage.show();
         } catch (Exception e) {

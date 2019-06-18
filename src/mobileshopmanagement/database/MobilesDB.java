@@ -19,7 +19,7 @@ import mobileshopmanagement.model.Mobiles;
 
 public class MobilesDB {
 
-    String insertSql = "INSERT INTO mobile(brand,model,display,platform,memory,camera,sensors,battery,colors,quantity,price,image) "
+    private String insertSql = "INSERT INTO mobile(brand,model,display,platform,memory,camera,sensors,battery,colors,quantity,price,image) "
             + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 
     public int insertMobile(Mobiles mobiles) {
@@ -126,7 +126,7 @@ public class MobilesDB {
             
             statement.close();
             connection.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
             System.err.println("Error in Search : " + e.getMessage());
         }
             
@@ -150,6 +150,31 @@ public class MobilesDB {
             connection.close();
             } catch (SQLException e) {
             System.err.println("Error in delete : " + e.getMessage());
+        }
+        return result > 0;
+    }
+    
+    public boolean updateQty(int qty,int id){
+        String updateQtySql = "UPDATE mobile SET QUANTITY=? WHERE ID=?";
+        Connection connection = checkConnection();
+        
+        int result = 0;
+        
+        System.out.println("id : " + id + " qty : " + qty );
+        
+        try {
+            PreparedStatement statement = connection.prepareStatement(updateQtySql);
+            
+            statement.setInt(1, qty);
+            statement.setInt(2, id);
+            
+            result = statement.executeUpdate();
+            
+            statement.close();
+            connection.close();
+            } catch (SQLException e) {
+            System.err.println("Error in updateQty : " + e.getMessage());
+            e.printStackTrace();
         }
         return result > 0;
     }

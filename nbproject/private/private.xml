@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/database/DBHelper.java</file>
             <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/controller/BillingController.java</file>
             <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/model/Models.java</file>
+            <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/controller/OtpController.java</file>
+            <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/utils/Otp.java</file>
             <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/database/MobilesDB.java</file>
             <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/controller/PurchaseController.java</file>
             <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/database/BillingDB.java</file>
+            <file>file:/C:/Users/madhu/Documents/NetBeansProjects/MobileShopManagement/src/mobileshopmanagement/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>

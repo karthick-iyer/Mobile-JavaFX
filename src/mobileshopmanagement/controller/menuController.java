@@ -10,17 +10,22 @@ package mobileshopmanagement.controller;
  * @author madhu
  */
 import com.jfoenix.controls.JFXButton;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import mobileshopmanagement.database.BillingDB;
 
-public class menuController {
+public class menuController implements Initializable{
 
     @FXML
     private JFXButton btn_dashboard;
@@ -39,6 +44,31 @@ public class menuController {
 
     @FXML
     private JFXButton btn_exit;
+    
+     @FXML
+    private Label lb_customer;
+
+    @FXML
+    private Label lb_sales;
+
+    @FXML
+    private Label lb_total;
+
+    @FXML
+    private Label lb_stocks;
+    
+    private BillingDB billingDB = new BillingDB();
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        lb_customer.setText( "" + billingDB.getTotalCustomers());
+        lb_sales.setText("" + billingDB.getTotalNoOfSales());
+        lb_stocks.setText("" + billingDB.getTotalStockes());
+        lb_total.setText(" "+ billingDB.getTotalSales());
+        
+    }
 
     @FXML
     void aboutClicked(ActionEvent event) {

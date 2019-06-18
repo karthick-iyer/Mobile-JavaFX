@@ -10,14 +10,24 @@ package mobileshopmanagement.model;
  * @author madhu
  */
 public class Models {
+    private int id;
     private String models;
     private String price;
     private String qty;
 
-    public Models(String models, String price, String qty) {
+    public Models(int id, String models, String price, String qty) {
+        this.id = id;
         this.models = models;
         this.price = price;
         this.qty = qty;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getModels() {

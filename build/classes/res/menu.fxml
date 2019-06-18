@@ -21,7 +21,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="161.0" layoutY="28.0" text="18">
+            <Label fx:id="lb_customer" layoutX="161.0" layoutY="28.0" text="18">
                <font>
                   <Font size="36.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="161.0" layoutY="28.0" text="9">
+            <Label fx:id="lb_sales" layoutX="161.0" layoutY="28.0" text="9">
                <font>
                   <Font size="36.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="95.0" layoutY="28.0" text="90,150">
+            <Label fx:id="lb_total" layoutX="95.0" layoutY="28.0" text="90,150">
                <font>
                   <Font size="36.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="28.0" text="150">
+            <Label fx:id="lb_stocks" layoutX="141.0" layoutY="28.0" text="150">
                <font>
                   <Font size="36.0" />
                </font>

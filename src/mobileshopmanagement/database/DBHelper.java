@@ -29,6 +29,10 @@ public class DBHelper {
                         resultSet.getString("username")+  "\t" +
                         resultSet.getString("password")+  "\t");
             }*/
+            
+            resultSet.close();
+            statement.close();
+            connection.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
